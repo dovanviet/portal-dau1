@@ -24,6 +24,7 @@ import com.example.daumobile.utils.SharePrefUtils;
 
 public class AlarmReceiver extends BroadcastReceiver {
     private static final String TAG = "__AlarmReceiver";
+    public static final String CHANNEL_ID = "PORTAL_DAU";
 
     Intent notificationIntent;
     PendingIntent contentIntent;
@@ -44,7 +45,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             contentIntent = PendingIntent
                     .getActivity(context, requestID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(context)
+                    new NotificationCompat.Builder(context, CHANNEL_ID)
                             .setSmallIcon(R.mipmap.ic_launcher)
                             .setContentTitle(title)
                             .setContentText(content)
