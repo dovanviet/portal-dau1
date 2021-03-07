@@ -58,8 +58,4 @@ public class AlarmReceiver extends BroadcastReceiver {
             notificationManager.notify(0, builder.build());
         }
     }
-
-    public void showNoti() {
-
-    }
 }

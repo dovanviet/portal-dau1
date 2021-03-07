@@ -5,23 +5,23 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp">
+        android:layout_height="100dp">
 
         <TextView
             android:id="@+id/tvTenMonHoc"
             android:layout_width="230dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="Giải tích 1"
             android:gravity="center_vertical"
+            android:text="Giải tích 1"
             android:textColor="@color/MediumSeaGreen"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvSoTinChi"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="25dp"
             android:layout_below="@id/tvTenMonHoc"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="5dp"

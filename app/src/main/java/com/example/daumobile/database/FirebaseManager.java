@@ -182,16 +182,15 @@ public class FirebaseManager {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Schedule> results = new ArrayList<>();
-                Log.d(TAG, "onDataChange: CALLED");
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Schedule schedule = postSnapshot.getValue(Schedule.class);
 
                     if (schedule != null && schedule.isTamdung()) {
-                        if (schedule.getLopHoc().equals(mSharePrefInstance.getClassStudent())) {
+                        if (schedule.getLopHoc().equals(mSharePrefInstance.getClassStudent()) && !schedule.isDathongbao()) {
                             mNotifyInstance.showNotifyNow("Thông báo", "Môn học " + schedule.getTenHP() + " đã tạm dừng");
+                            isNotiSchedule(schedule);
                         }
-
-                        postSnapshot.getRef().removeValue();
+                        results.add(schedule);
                     } else {
                         results.add(schedule);
                     }
@@ -204,6 +203,11 @@ public class FirebaseManager {
                 Log.d(TAG, "loadPost:onCancelled", error.toException());
             }
         });
+    }
+
+    public void isNotiSchedule(Schedule scheduleNoti) {
+        scheduleNoti.setDathongbao(true);
+        mScheduleFref.child(scheduleNoti.getId()).setValue(scheduleNoti);
     }
 
     public void onPauseSchedule(Schedule scheduleDelete) {

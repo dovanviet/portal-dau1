@@ -191,11 +191,11 @@ public class ScheduleActivity extends AppCompatActivity implements IListenerItem
             if (mTypeOfSchedule.equals(Constants.LICH_THI) && mUser instanceof Student &&
                     schedule.getLopHoc().toLowerCase().contains(((Student) mUser).getLopHoc().toLowerCase()) &&
                     schedule.getLoaiHP().isEmpty() &&
-                    schedule.getNam().equals(year) && Integer.parseInt(schedule.getHocky()) == semester) {
+                    schedule.getNam().equals(year) && Integer.parseInt(schedule.getHocky()) == semester && !schedule.isTamdung()) {
                 mCurrentSchedulers.add(schedule);
             } else if (mTypeOfSchedule.equals(Constants.LICH_DAY) && mUser instanceof Teacher && schedule.getNam().equals(year) && Integer.parseInt(schedule.getHocky()) == semester) {
                 mCurrentSchedulers.add(schedule);
-            } else if (schedule.getNam().equals(year) && schedule.getTuan() == week && Integer.parseInt(schedule.getHocky()) == semester) {
+            } else if (schedule.getNam().equals(year) && schedule.getTuan() == week && Integer.parseInt(schedule.getHocky()) == semester  && !schedule.isTamdung()) {
                 mCurrentSchedulers.add(schedule);
             }
         }
@@ -205,14 +205,12 @@ public class ScheduleActivity extends AppCompatActivity implements IListenerItem
 
     @Override
     public void onItemClicked(int position) {
-        Toast.makeText(this, mSchedulers.get(position).getTenHP(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, mSchedulers.get(position).getTenHP(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onItemPauseClicked(int position) {
-        Toast.makeText(this, "Pause at " + mSchedulers.get(position).getTenHP(), Toast.LENGTH_SHORT).show();
         // Pause and sends notify to users
-        mAdapter.deleteItemAt(position);
         mFirebaseManager.onPauseSchedule(mSchedulers.get(position));
     }
 }

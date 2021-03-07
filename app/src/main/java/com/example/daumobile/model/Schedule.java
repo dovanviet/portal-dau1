@@ -20,6 +20,7 @@ public class Schedule {
     String nam;
     String phong;
     int tuan;
+    boolean dathongbao;
 
     public String getId() {
         return id;
@@ -121,6 +122,14 @@ public class Schedule {
         return tamdung;
     }
 
+    public boolean isDathongbao() {
+        return dathongbao;
+    }
+
+    public void setDathongbao(boolean dathongbao) {
+        this.dathongbao = dathongbao;
+    }
+
     public void setTamdung(boolean tamdung) {
         this.tamdung = tamdung;
     }
@@ -157,7 +166,7 @@ public class Schedule {
         this.tuan = tuan;
     }
 
-    public Schedule(String maHP, String tenHP, String loaiHP, int soTinChi, String lopHoc, int soTiet, String tenGiangVien, String thoiGianDayTrongTuan, long thoiGian, String buoi, String tiet, boolean tamdung, String hocky, String nam, String phong, int tuan) {
+    public Schedule(String maHP, String tenHP, String loaiHP, int soTinChi, String lopHoc, int soTiet, String tenGiangVien, String thoiGianDayTrongTuan, long thoiGian, String buoi, String tiet, boolean tamdung, String hocky, String nam, String phong, int tuan, boolean dathongbao) {
         this.maHP = maHP;
         this.tenHP = tenHP;
         this.loaiHP = loaiHP;
@@ -174,6 +183,7 @@ public class Schedule {
         this.nam = nam;
         this.phong = phong;
         this.tuan = tuan;
+        this.dathongbao = dathongbao;
     }
 
     public Schedule(String id, String maHP, String tenHP, String loaiHP, int soTinChi, String lopHoc, int soTiet, String tenGiangVien, String thoiGianDayTrongTuan, long thoiGian, String buoi, String tiet, boolean tamdung, String hocky, String nam, String phong, int tuan) {
@@ -194,6 +204,27 @@ public class Schedule {
         this.nam = nam;
         this.phong = phong;
         this.tuan = tuan;
+    }
+
+    public Schedule(String id, String maHP, String tenHP, String loaiHP, int soTinChi, String lopHoc, int soTiet, String tenGiangVien, String thoiGianDayTrongTuan, long thoiGian, String buoi, String tiet, boolean tamdung, String hocky, String nam, String phong, int tuan, boolean dathongbao) {
+        this.id = id;
+        this.maHP = maHP;
+        this.tenHP = tenHP;
+        this.loaiHP = loaiHP;
+        this.soTinChi = soTinChi;
+        this.lopHoc = lopHoc;
+        this.soTiet = soTiet;
+        this.tenGiangVien = tenGiangVien;
+        this.thoiGianDayTrongTuan = thoiGianDayTrongTuan;
+        this.thoiGian = thoiGian;
+        this.buoi = buoi;
+        this.tiet = tiet;
+        this.tamdung = tamdung;
+        this.hocky = hocky;
+        this.nam = nam;
+        this.phong = phong;
+        this.tuan = tuan;
+        this.dathongbao = dathongbao;
     }
 
     public Schedule() {

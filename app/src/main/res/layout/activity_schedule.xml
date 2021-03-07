@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White"
-    tools:context=".ui.schedule.ScheduleActivity"
-    >
+    tools:context=".ui.schedule.ScheduleActivity">
 
     <RelativeLayout
         android:id="@+id/relative_schedule_top"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:background="@color/CornflowerBlue">
 
         <TextView

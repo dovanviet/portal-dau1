@@ -1,5 +1,6 @@
 package com.example.daumobile.ui.schedule;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -98,10 +99,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
             super(scheduleBinding.getRoot());
             binding = scheduleBinding;
 
-            binding.flPause.setOnClickListener(v -> mListener.onItemPauseClicked(getAdapterPosition()));
+            binding.flPause.setOnClickListener(v -> {
+                mListener.onItemPauseClicked(getAdapterPosition());
+                binding.swipeLayout.close(true);
+            });
             binding.cardView.setOnClickListener(v -> mListener.onItemClicked(getAdapterPosition()));
 
             binding.swipeLayout.setLockDrag(!isSwipe);
+
         }
 
         public void bindData(Schedule schedule) {
@@ -119,6 +124,12 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                 binding.tvDiaDiem.setText(address);
                 binding.tvTenMonHoc.setText(schedule.getTenHP());
                 binding.tvTenGiangVien.setText("Phòng " +schedule.getPhong());
+
+                if (schedule.isTamdung()) {
+                    binding.cardView.setBackgroundColor(Color.rgb(206,230,180));
+                } else {
+                    binding.cardView.setBackgroundColor(Color.WHITE);
+                }
             }
         }
     }

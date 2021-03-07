@@ -142,7 +142,7 @@ public class FileService {
                 int tuanI = Integer.parseInt(tuan);
 
                 //String maHP, String tenHP, String loaiHP, int soTinChi, String lopHoc, int soTiet, String tenGiangVien, String thoiGianDayTrongTuan, int thoiGian, String buoi, String tiet, boolean tamdung
-                Schedule schedule = new Schedule(maHP, tenHP, loaiHP, soTinChiI, lopHoc, soTietI, giangVien, ngayHoc, thoiGianI, buoi, tiet, tamdungB, hocKy, nam, phong,tuanI);
+                Schedule schedule = new Schedule(maHP, tenHP, loaiHP, soTinChiI, lopHoc, soTietI, giangVien, ngayHoc, thoiGianI, buoi, tiet, tamdungB, hocKy, nam, phong,tuanI, false);
                 mFirebaseManager.addSchedule(schedule);
             }
         } catch (IOException e) {
@@ -190,7 +190,7 @@ public class FileService {
 //                int tuanI = Integer.parseInt(tuan);
 
                 //String maHP, String tenHP, String loaiHP, int soTinChi, String lopHoc, int soTiet, String tenGiangVien, String thoiGianDayTrongTuan, int thoiGian, String buoi, String tiet, boolean tamdung
-                Schedule schedule = new Schedule(maHP, tenHP, loaiHP, 0, lopHoc, 0, giangVien, ngayHoc, thoiGianI, buoi, tiet, tamdungB, hocKy, nam, phong,0);
+                Schedule schedule = new Schedule(maHP, tenHP, loaiHP, 0, lopHoc, 0, giangVien, ngayHoc, thoiGianI, buoi, tiet, tamdungB, hocKy, nam, phong,0, false);
                 mFirebaseManager.addSchedule(schedule);
             }
         } catch (IOException e) {

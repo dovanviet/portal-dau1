@@ -5,28 +5,32 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="95dp">
 
         <TextView
             android:id="@+id/tvTenHp"
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            android:layout_toStartOf="@id/tvLoaiHp"
+            android:gravity="center_vertical"
             android:text="Giải tích 1"
             android:textColor="@color/MediumSeaGreen"
-            android:gravity="center_vertical"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvLoaiHp"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:text="Bắt buộc"
             android:gravity="center_vertical"
+            android:text="Bắt buộc"
             android:textColor="@color/MediumSeaGreen"
             android:textSize="16sp" />
 
