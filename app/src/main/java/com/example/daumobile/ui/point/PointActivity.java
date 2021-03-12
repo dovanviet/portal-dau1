@@ -78,14 +78,14 @@ public class PointActivity extends AppCompatActivity implements IListenerItemCli
         });
 
         binding.imgPointPlusSemester.setOnClickListener(v -> {
-            if (currentSemester <= Constants.MAX_SEMESTER) {
+            if (currentSemester < Constants.MAX_SEMESTER) {
                 currentSemester++;
                 updateSemester();
                 binding.tvPointNameSemester.setText("Học kỳ " + currentSemester);
             }
         });
         binding.imgPointSubSemester.setOnClickListener(v -> {
-            if (currentSemester >= Constants.MIN_SEMESTER) {
+            if (currentSemester > Constants.MIN_SEMESTER) {
                 currentSemester--;
                 updateSemester();
                 binding.tvPointNameSemester.setText("Học kỳ " + currentSemester);

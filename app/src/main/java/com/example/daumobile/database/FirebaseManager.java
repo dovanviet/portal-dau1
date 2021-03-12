@@ -115,11 +115,9 @@ public class FirebaseManager {
     }
 
     private void onListenUserValue() {
-        Log.d(TAG, "onListenUserValue: ???");
         mUserFref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "onDataChange: 1");
                 List<People> results = new ArrayList<>();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     boolean isStudent = false;

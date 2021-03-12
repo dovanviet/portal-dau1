@@ -161,7 +161,6 @@ public class ScheduleActivity extends AppCompatActivity implements IListenerItem
                     String year = years.get(selectedIndex);
                     int semester = semesters.get(selectedSemesterIndex);
 
-
                     if (semester != mSharePrefs.getSemester() && semester == 1) {
                         mSharePrefs.saveWeek(1);
                     } else if (semester != mSharePrefs.getSemester() && semester == 2){
