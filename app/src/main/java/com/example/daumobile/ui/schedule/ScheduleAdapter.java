@@ -117,6 +117,12 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                 binding.tvDiaDiem.setText(address);
                 binding.tvTenMonHoc.setText(schedule.getTenHP());
                 binding.tvTenGiangVien.setText(schedule.getTenGiangVien());
+
+                if (schedule.isTamdung()) {
+                    binding.cardView.setBackgroundColor(Color.rgb(241,70,104));
+                } else {
+                    binding.cardView.setBackgroundColor(Color.rgb(255,255,255));
+                }
             } else {
                 String time = dateUtils.formatFullDate(schedule.getThoiGian());
                 String address = schedule.getTiet();
@@ -126,9 +132,9 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                 binding.tvTenGiangVien.setText("Phòng " +schedule.getPhong());
 
                 if (schedule.isTamdung()) {
-                    binding.cardView.setBackgroundColor(Color.rgb(206,230,180));
+                    binding.cardView.setBackgroundColor(Color.rgb(241,70,104));
                 } else {
-                    binding.cardView.setBackgroundColor(Color.WHITE);
+                    binding.cardView.setBackgroundColor(Color.rgb(255,255,255));
                 }
             }
         }

@@ -190,10 +190,8 @@ public class FirebaseManager {
                             mNotifyInstance.showNotifyNow("Thông báo", "Môn học " + schedule.getTenHP() + " đã tạm dừng");
                             isNotiSchedule(schedule);
                         }
-                        results.add(schedule);
-                    } else {
-                        results.add(schedule);
                     }
+                    results.add(schedule);
                 }
                 mScheduleData.postValue(results);
             }

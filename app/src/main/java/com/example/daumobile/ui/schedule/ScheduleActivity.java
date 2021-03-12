@@ -191,11 +191,11 @@ public class ScheduleActivity extends AppCompatActivity implements IListenerItem
             if (mTypeOfSchedule.equals(Constants.LICH_THI) && mUser instanceof Student &&
                     schedule.getLopHoc().toLowerCase().contains(((Student) mUser).getLopHoc().toLowerCase()) &&
                     schedule.getLoaiHP().isEmpty() &&
-                    schedule.getNam().equals(year) && Integer.parseInt(schedule.getHocky()) == semester && !schedule.isTamdung()) {
+                    schedule.getNam().equals(year) && Integer.parseInt(schedule.getHocky()) == semester) {
                 mCurrentSchedulers.add(schedule);
             } else if (mTypeOfSchedule.equals(Constants.LICH_DAY) && mUser instanceof Teacher && schedule.getNam().equals(year) && Integer.parseInt(schedule.getHocky()) == semester) {
                 mCurrentSchedulers.add(schedule);
-            } else if (schedule.getNam().equals(year) && schedule.getTuan() == week && Integer.parseInt(schedule.getHocky()) == semester  && !schedule.isTamdung()) {
+            } else if (schedule.getNam().equals(year) && schedule.getTuan() == week && Integer.parseInt(schedule.getHocky()) == semester) {
                 mCurrentSchedulers.add(schedule);
             }
         }
