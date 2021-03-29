@@ -35,7 +35,7 @@ public class Constants {
 //    public static final int GIANG_VIEN = 0;
 //    public static final int SINH_VIEN = 1;
 
-    public static final String MENU_XEMDIEM = "Xem điểm";
+    public static final String MENU_XEMDIEM = "Kết quả học tập";
     public static final String MENU_THOIKHOABIEU = "Thời khoá biểu";
     public static final String MENU_LICHTHI = "Lịch thi";
     public static final String MENU_LICHDAY = "Lịch dạy";

@@ -99,6 +99,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
             super(scheduleBinding.getRoot());
             binding = scheduleBinding;
 
+            // tam dung
             binding.flPause.setOnClickListener(v -> {
                 mListener.onItemPauseClicked(getAdapterPosition());
                 binding.swipeLayout.close(true);

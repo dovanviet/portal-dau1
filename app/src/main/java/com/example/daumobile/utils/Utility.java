@@ -48,13 +48,22 @@ public class Utility {
         }
     }
 
-    public double tinh_diem_trung_binh(ArrayList<Integer> ds_diem, long tong_tin_chi) {
-        long tong_diem = 0;
-        for (int diem : ds_diem) {
-            tong_diem += diem;
-        }
+    public double tinhDiemTrungBinh(double tongDiem, long tongMonHoc) {
+        return tongDiem / (tongMonHoc * 1.0);
+    }
 
-        return tong_diem / (tong_tin_chi * 1.0);
+    public String tinhHocLuc(double diemTrungBinh) {
+        if (diemTrungBinh >= 8.5) {
+            return "Xuất sắc";
+        }else if(diemTrungBinh >= 7.9) {
+            return "Giỏi";
+        }else if(diemTrungBinh >= 6.5) {
+            return "Khá";
+        }else if(diemTrungBinh >= 4.0) {
+            return "Trung Bình";
+        }else {
+            return "Kém";
+        }
     }
 
     public int getPositionInArray(ArrayList<Integer> array, int  value){

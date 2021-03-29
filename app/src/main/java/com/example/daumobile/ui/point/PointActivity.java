@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.daumobile.callbacks.IListenerItemClicked;
 import com.example.daumobile.database.Constants;
@@ -16,6 +17,7 @@ import com.example.daumobile.model.Program;
 import com.example.daumobile.model.User;
 import com.example.daumobile.model.authen.People;
 import com.example.daumobile.model.authen.Student;
+import com.example.daumobile.utils.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,14 +95,39 @@ public class PointActivity extends AppCompatActivity implements IListenerItemCli
         });
     }
 
+    /**
+     *  < 4 : kém
+     *  < 6.5: trung bình
+     *  < 7.9: khá
+     *  < 8.5: giỏi
+     *  >= 8.5: xuất sắc
+     */
+
     private void updateSemester() {
+        int countFailNumber = 0;
+        double tongDiemTrungBinh;
+        long tongMonHoc = 0;
+        double tongDiem = 0;
         mCurrentPoints.clear();
 
         for (Point point : mPoints) {
-            if (point.getHocKy() == currentSemester)
+            if (point.getHocKy() == currentSemester){
                 mCurrentPoints.add(point);
+
+                if (point.getDiemTrungBinh() < 4) {
+                    countFailNumber += point.getTinChi();
+                }
+                tongDiem += point.getDiemTrungBinh();
+
+            }
         }
+
+        tongDiemTrungBinh = Utility.getInstance().tinhDiemTrungBinh(tongDiem, mCurrentPoints.size());
+        //update ui
         mAdapter.updateList(mCurrentPoints);
+        binding.tvPointStcFail.setText("Số tín chỉ rớt: " + countFailNumber);
+        binding.tvPointHocluc.setText("Học lực: " + Utility.getInstance().tinhHocLuc(tongDiemTrungBinh));
+        binding.tvPointDtb.setText(String.format("Điểm trung bình: %.2f", tongDiemTrungBinh));
     }
 
 }
